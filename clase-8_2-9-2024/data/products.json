@@ -1,0 +1,11 @@
+[
+  {
+    "id": "0b8febbc-854f-4e9f-85af-1c1b51a3b4e4",
+    "name": "Mesita de luz 2",
+    "categories": ["Hogar", "Muebles", "Dormitorio"],
+    "price": 20000,
+    "quantity": 200,
+    "expirationDate": "10-9-2024",
+    "promoteProduct": false
+  }
+]
