@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "dev": "PATH_FILE_MOVIES='./data/movies.json' node models.js"
+  },
+  "name": "practica-utn-modularizacion",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "16.4.5"
+  }
+}
