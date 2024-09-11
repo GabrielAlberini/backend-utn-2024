@@ -1,0 +1,13 @@
+{
+  "name": "user-app-utn",
+  "version": "0.0.1",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "info": "node ./utils/info.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
