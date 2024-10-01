@@ -1,0 +1,14 @@
+{
+  "name": "clase-14_25-9-2024",
+  "version": "1.0.0",
+  "description": "Crea un servidor HTTP utilizando el módulo http de Node.js que gestione una lista de usuarios. Debe permitir las siguientes operaciones:",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
