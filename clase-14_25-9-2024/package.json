@@ -9,6 +9,10 @@
   },
   "keywords": [],
   "author": "",
+<<<<<<< HEAD
   "license": "ISC",
   "dependencies": {}
+=======
+  "license": "ISC"
+>>>>>>> ab77785d3b55f0a1aba2b8e06bab8e4d918bcae4
 }

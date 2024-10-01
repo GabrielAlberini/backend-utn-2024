@@ -1,6 +1,18 @@
 import http from "node:http";
 import crypto from "node:crypto";
 
+<<<<<<< HEAD
+=======
+const applyCors = (res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*"); // Permitir acceso desde cualquier dominio
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  ); // Métodos permitidos
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type"); // Headers permitidos
+};
+
+>>>>>>> ab77785d3b55f0a1aba2b8e06bab8e4d918bcae4
 let users = [
   {
     id: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
@@ -39,6 +51,10 @@ const responseToClient = (res, obj, code = 200) => {
 // La función se invocará cuando reciba una petición
 const servidorHttp = http.createServer((request, response) => {
   const { url, method } = request;
+<<<<<<< HEAD
+=======
+  applyCors(response);
+>>>>>>> ab77785d3b55f0a1aba2b8e06bab8e4d918bcae4
 
   if (url === "/api/users" && method === "GET") {
     // Invocación -> usar la función y pasarle los datos REALES
