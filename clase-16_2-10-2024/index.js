@@ -1,4 +1,6 @@
 import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
 
 let cars = [
   {
@@ -21,11 +23,14 @@ let cars = [
   },
 ];
 
+const users = [];
+
 const app = express();
 
+// req.body -> permite que exista
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.get("/api/cars", (req, res) => {
   try {
@@ -118,6 +123,10 @@ app.delete("/api/cars/:id", (req, res) => {
     // res.status(500) -> express
     res.status(500).json({ error: error.message });
   }
+});
+
+app.get("/api/users", (req, res) => {
+  res.json({ data: "obteniendo los usuarios" });
 });
 
 // Middleware
