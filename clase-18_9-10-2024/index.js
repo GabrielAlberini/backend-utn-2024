@@ -3,7 +3,14 @@ import bcryptjs from "bcryptjs";
 import { randomUUID } from "node:crypto";
 import jwt from "jsonwebtoken";
 
-let users = [];
+let users = [
+  {
+    id: "4931522b-21f0-4bc8-9235-13e6698a2e94",
+    username: "thiagoelmaskpo",
+    email: "thiago@gmail.com",
+    password: "$2a$10$xKP8yeKddnxq0nuzqNYxG.FlhxPZ9UeEvVxFZvYGc/wjHxaNl0Boi",
+  },
+];
 
 const app = express();
 app.use(express.json());
@@ -72,10 +79,44 @@ app.post("/login", async (req, res) => {
 
   // sign necesita tres parametros -> data, clave secreta (necesita definir el back y el front la tiene que usar), cuando expira
   const token = jwt.sign({ username: user.username }, "pepe", {
-    expiresIn: "1h",
+    expiresIn: "60s",
   });
 
   res.json({ token });
+});
+
+// Middleware
+const authToken = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  // quitamos del string "Bearer" quedandonos solamente con el token
+  // Bearer en este caso comunica al sistma que formato de token estamos trabajando
+  let token;
+
+  if (authHeader) {
+    token = authHeader.split(" ")[1];
+  }
+
+  if (!token) {
+    return res.status(403).json({ error: "Forbidden" });
+  }
+
+  jwt.verify(token, "pepe", (error, user) => {
+    if (error) {
+      return res.status(403).json({ error: "Forbidden" });
+    }
+    next();
+  });
+};
+
+app.get("/api/contacts", authToken, (req, res) => {
+  res.json([
+    { id: 1, name: "Gabo" },
+    { id: 2, name: "Thiago" },
+  ]);
+});
+
+app.get("/api/photos", authToken, (req, res) => {
+  res.json([{ photo: 1 }, { photo: 2 }]);
 });
 
 app.listen(PORT, () => {
