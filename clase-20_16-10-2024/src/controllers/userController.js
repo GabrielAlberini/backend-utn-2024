@@ -12,13 +12,16 @@ const getUsers = (req, res) => {
 const getUserByData = (req, res) => {
   try {
     const { data } = req.params;
-    if (typeof data !== "string")
-      res.status(400).json({ error: "bad request" });
+    if (typeof data !== "string") {
+      return res.status(400).json({ error: "bad request" });
+    }
     const user = UserModel.getUserByData(data);
-    if (!user) res.status(404).json({ error: "not found user" });
-    res.json(user);
+    if (!user) {
+      return res.status(404).json({ error: "not found user" });
+    }
+    return res.json(user);
   } catch (error) {
-    res.status(500).json({ error: "internal error server" });
+    return res.status(500).json({ error: "internal error server" });
   }
 };
 

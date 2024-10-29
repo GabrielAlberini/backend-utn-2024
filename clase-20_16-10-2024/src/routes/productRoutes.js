@@ -14,6 +14,7 @@ productRoutes.get("/", (req, res) => {
 productRoutes.get("/:id", (req, res) => {
   const { id } = req.params;
   const product = products.find((p) => p.id === id);
+  if(!product) res.status(404).json({error: "product not found"})
   res.json(product);
 });
 
