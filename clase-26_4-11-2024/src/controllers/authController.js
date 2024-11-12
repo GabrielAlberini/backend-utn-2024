@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken"
 process.loadEnvFile();
 
 const JWT_SECRET = process.env.JWT_SECRET
-console.log(JWT_SECRET)
 
 const register = async (req, res) => {
   try {

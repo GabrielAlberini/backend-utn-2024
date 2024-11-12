@@ -1,0 +1,21 @@
+{
+  "name": "clase-25_30-10-2024",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "express": "4.21.1",
+    "jsonwebtoken": "9.0.2",
+    "mysql2": "3.11.4",
+    "sequelize": "6.37.5"
+  }
+}
